@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:url_app/features/screens/url_host_screen.dart';
+import 'package:url_app/features/presentation/screens/url_host_screen.dart';
 import '../../../../core/utils/app_assets.dart';
 import '../../../../core/widgets/custom_image.dart';
-import '../../core/database/api/end_points.dart';
-import '../../core/database/cache_helper/cache_helper.dart';
-import '../../core/routes/app_routes.dart';
-import '../../core/services/service_locator.dart';
-import '../../core/utils/app_strings.dart';
+import '../../../core/database/cache_helper/cache_helper.dart';
+import '../../../core/services/service_locator.dart';
+import '../../../core/utils/app_strings.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -26,7 +24,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   void navigate() async{
-    bool isVisted = await sl<CacheHelper>().getData(
+    bool isVisted = await CacheHelper.getData(
       key: AppStrings.urlHostKey,
     ) ??
         false;
@@ -34,7 +32,7 @@ class _SplashScreenState extends State<SplashScreen> {
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (_) => isVisted ? const SplashScreen() : UrlHostScreen(),
+          builder: (_) => isVisted ? const SplashScreen() : WebViewScreen(),
         ),
       );
     });

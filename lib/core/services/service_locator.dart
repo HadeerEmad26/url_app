@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
+import 'package:url_app/features/presentation/cubit/url_cubit.dart';
 
 import '../bloc/cubit/global_cubit.dart';
 import '../database/api/api_consumer.dart';
@@ -12,6 +13,7 @@ final sl = GetIt.instance;
 void initServiceLocator() {
   //cubit
   sl.registerLazySingleton(() => GlobalCubit());
+  sl.registerLazySingleton(() => UrlCubit());
 
 
   //auth feature

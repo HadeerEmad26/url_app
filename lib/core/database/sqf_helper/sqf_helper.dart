@@ -72,24 +72,24 @@ class SqfliteHelper {
 
 
 
-  static void deletePrefs() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    final keys = prefs.getKeys(); // Get all stored keys
-    for (String key in keys) {
-      if (key != "new_host") {
-        await prefs.remove(key); // Remove all keys except the specified one
-      }
-    }
-  }
-
-  static void saveNewHost(String newHost) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.setString("new_host", newHost);
-  }
-
-  static Future<String> getNewHost() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    return prefs.getString("new_host") ?? "";
-  }
+  // static void deletePrefs() async {
+  //   SharedPreferences prefs = await SharedPreferences.getInstance();
+  //   final keys = prefs.getKeys(); // Get all stored keys
+  //   for (String key in keys) {
+  //     if (key != "new_host") {
+  //       await prefs.remove(key); // Remove all keys except the specified one
+  //     }
+  //   }
+  // }
+  //
+  // static void saveNewHost(String newHost) async {
+  //   SharedPreferences prefs = await SharedPreferences.getInstance();
+  //   prefs.setString("new_host", newHost);
+  // }
+  //
+  // static Future<String> getNewHost() async {
+  //   SharedPreferences prefs = await SharedPreferences.getInstance();
+  //   return prefs.getString("new_host") ?? "";
+  // }
 
 }
